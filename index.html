@@ -3,550 +3,898 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gerelt Academy | Онлайн сургалт</title>
+  <title>Daam Academy | Онлайн сургалт</title>
+  <meta name="description" content="Онлайнаар ур чадвар эзэмшиж, орлогоо өсгөх сургалтууд. CapCut, Photoshop, Компьютерийн анхан шатны сургалт." />
 
   <style>
-    :root {
-      --primary: #0f172a;
-      --secondary: #1e293b;
-      --accent: #f59e0b;
-      --soft: #fff7ed;
-      --text: #0f172a;
-      --muted: #64748b;
-      --white: #ffffff;
-      --border: #e2e8f0;
-      --bg: #f8fafc;
+    :root{
+      --bg:#081120;
+      --bg-soft:#0f172a;
+      --card:#ffffff;
+      --text:#0f172a;
+      --muted:#64748b;
+      --line:#e2e8f0;
+      --gold:#f59e0b;
+      --gold-soft:#fff7e6;
+      --blue:#2563eb;
+      --white:#ffffff;
+      --shadow: 0 20px 60px rgba(2, 6, 23, 0.12);
+      --radius-xl:32px;
+      --radius-lg:24px;
+      --radius-md:18px;
+      --radius-sm:14px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
       font-family: Arial, sans-serif;
-      color: var(--text);
-      background: linear-gradient(180deg, var(--soft) 0%, #ffffff 22%, var(--bg) 100%);
-      line-height: 1.6;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(245,158,11,0.14), transparent 28%),
+        radial-gradient(circle at top right, rgba(37,99,235,0.16), transparent 25%),
+        linear-gradient(180deg, #fffaf1 0%, #ffffff 22%, #f8fafc 100%);
+      line-height:1.6;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    .container{max-width:1200px;margin:0 auto;padding:0 20px}
+
+    .header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(255,255,255,0.82);
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid rgba(226,232,240,0.8);
+    }
+
+    .header-inner{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:16px 0;
+      gap:16px;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .logo-badge{
+      width:44px;
+      height:44px;
+      border-radius:14px;
+      background:linear-gradient(135deg, var(--gold), #fbbf24);
+      display:grid;
+      place-items:center;
+      color:#111827;
+      font-weight:700;
+      box-shadow:0 10px 30px rgba(245,158,11,0.3);
+    }
+
+    .logo-text h1{
+      margin:0;
+      font-size:22px;
+      line-height:1.1;
+    }
+
+    .logo-text p{
+      margin:2px 0 0;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:24px;
+      font-size:14px;
+      color:#334155;
+    }
+
+    .nav a:hover{color:var(--blue)}
+
+    .header-cta{
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:14px 22px;
+      border-radius:999px;
+      font-weight:700;
+      font-size:14px;
+      border:1px solid transparent;
+      transition:.25s ease;
+      cursor:pointer;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg, #111827, #1e293b);
+      color:white;
+      box-shadow:0 14px 30px rgba(15,23,42,0.18);
+    }
+
+    .btn-gold{
+      background:linear-gradient(135deg, var(--gold), #fbbf24);
+      color:#111827;
+      box-shadow:0 14px 30px rgba(245,158,11,0.28);
+    }
+
+    .btn-outline{
+      background:white;
+      border-color:#dbeafe;
+      color:#0f172a;
+    }
+
+    .hero{
+      padding:72px 0 40px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.08fr .92fr;
+      gap:32px;
+      align-items:center;
+    }
+
+    .hero-left{
+      padding:10px 0;
+    }
+
+    .hero-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 16px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.9);
+      border:1px solid #f3e8c8;
+      box-shadow:0 10px 25px rgba(15,23,42,0.05);
+      color:#9a6700;
+      font-size:14px;
+      font-weight:700;
+      margin-bottom:18px;
+    }
+
+    .hero h2{
+      margin:0;
+      font-size:62px;
+      line-height:1.04;
+      letter-spacing:-1.2px;
+      color:#0f172a;
+      max-width:700px;
     }
 
-    .container {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 0 20px;
+    .hero h2 span{
+      color:var(--gold);
     }
 
-    .header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
+    .hero-desc{
+      margin:20px 0 0;
+      font-size:18px;
+      color:var(--muted);
+      max-width:650px;
     }
 
-    .header-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 0;
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-top:28px;
     }
 
-    .brand h1 {
-      margin: 0;
-      font-size: 24px;
-      color: var(--primary);
+    .hero-mini{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin-top:28px;
     }
 
-    .brand p {
-      margin: 4px 0 0;
-      color: var(--muted);
-      font-size: 14px;
+    .mini-card{
+      background:rgba(255,255,255,0.78);
+      border:1px solid rgba(255,255,255,0.8);
+      backdrop-filter:blur(8px);
+      border-radius:22px;
+      padding:18px;
+      box-shadow:0 10px 30px rgba(15,23,42,0.06);
     }
 
-    .nav {
-      display: flex;
-      gap: 24px;
-      font-size: 14px;
+    .mini-card strong{
+      display:block;
+      font-size:28px;
+      color:#0f172a;
     }
 
-    .hero {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 40px;
-      padding: 70px 0;
-      align-items: center;
+    .mini-card span{
+      color:var(--muted);
+      font-size:14px;
     }
 
-    .badge {
-      display: inline-block;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: var(--accent);
-      color: var(--primary);
-      font-weight: bold;
-      font-size: 14px;
-      margin-bottom: 14px;
+    .hero-right{
+      position:relative;
     }
 
-    .hero h2 {
-      margin: 0;
-      font-size: 58px;
-      line-height: 1.08;
-      color: var(--primary);
+    .hero-card{
+      position:relative;
+      overflow:hidden;
+      border-radius:36px;
+      background:
+        linear-gradient(160deg, rgba(15,23,42,0.95), rgba(30,41,59,0.92)),
+        url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      min-height:620px;
+      padding:28px;
+      box-shadow:0 30px 80px rgba(15,23,42,0.28);
+      display:flex;
+      align-items:flex-end;
     }
 
-    .hero h2 span {
-      color: var(--accent);
+    .hero-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(15,23,42,0.12), rgba(15,23,42,0.74));
     }
 
-    .hero p.desc {
-      color: var(--muted);
-      font-size: 18px;
-      max-width: 620px;
+    .hero-overlay{
+      position:relative;
+      z-index:2;
+      width:100%;
+      color:white;
     }
 
-    .btn-row,
-    .social-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 20px;
+    .glass{
+      background:rgba(255,255,255,0.09);
+      border:1px solid rgba(255,255,255,0.12);
+      backdrop-filter:blur(12px);
+      border-radius:24px;
+      padding:22px;
     }
 
-    .btn {
-      display: inline-block;
-      padding: 14px 22px;
-      border-radius: 16px;
-      font-weight: bold;
-      font-size: 14px;
-      transition: 0.2s ease;
-      border: 1px solid transparent;
-      cursor: pointer;
+    .hero-overlay .tag{
+      display:inline-block;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(245,158,11,0.18);
+      border:1px solid rgba(245,158,11,0.32);
+      color:#fde68a;
+      font-size:12px;
+      font-weight:700;
+      margin-bottom:12px;
     }
 
-    .btn-primary {
-      background: var(--primary);
-      color: var(--white);
+    .hero-overlay h3{
+      margin:0;
+      font-size:34px;
+      line-height:1.15;
     }
 
-    .btn-outline {
-      background: var(--white);
-      border-color: var(--accent);
-      color: var(--primary);
+    .hero-overlay p{
+      margin:12px 0 0;
+      color:#dbeafe;
     }
 
-    .btn-light {
-      background: var(--white);
-      border: 1px solid var(--border);
-      color: var(--primary);
+    .feature-list{
+      display:grid;
+      gap:12px;
+      margin-top:18px;
     }
 
-    .btn:hover {
-      transform: translateY(-1px);
+    .feature-item{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 14px;
+      border-radius:16px;
+      background:rgba(255,255,255,0.08);
+      color:#f8fafc;
+      font-size:14px;
     }
 
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin-top: 28px;
+    .floating-badge{
+      position:absolute;
+      top:20px;
+      right:20px;
+      z-index:3;
+      background:white;
+      color:#0f172a;
+      border-radius:20px;
+      padding:14px 16px;
+      box-shadow:var(--shadow);
+      min-width:180px;
     }
 
-    .stat {
-      background: var(--white);
-      border-radius: 20px;
-      padding: 18px;
-      text-align: center;
-      border: 1px solid #f1f5f9;
-      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.05);
+    .floating-badge strong{
+      display:block;
+      font-size:22px;
+      color:var(--gold);
     }
 
-    .stat strong {
-      display: block;
-      font-size: 28px;
-      color: var(--primary);
+    section{
+      padding:72px 0;
     }
 
-    .stat span {
-      color: var(--muted);
-      font-size: 14px;
+    .section-top{
+      max-width:760px;
+      margin:0 auto 30px;
+      text-align:center;
     }
 
-    .hero-card {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 60%, var(--accent) 140%);
-      color: var(--white);
-      border-radius: 32px;
-      padding: 24px;
-      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.22);
+    .eyebrow{
+      display:inline-block;
+      margin-bottom:10px;
+      color:#9a6700;
+      background:#fff7e6;
+      border:1px solid #f7e2b4;
+      padding:8px 14px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.12em;
+      text-transform:uppercase;
     }
 
-    .hero-card-inner {
-      background: rgba(255, 255, 255, 0.08);
-      border-radius: 24px;
-      padding: 24px;
-      backdrop-filter: blur(10px);
+    .section-top h3{
+      margin:0;
+      font-size:42px;
+      line-height:1.15;
+      color:#0f172a;
     }
 
-    .hero-card p.small {
-      margin: 0;
-      font-size: 13px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #e2e8f0;
+    .section-top p{
+      margin:14px 0 0;
+      color:var(--muted);
+      font-size:17px;
     }
 
-    .hero-card h3 {
-      margin: 12px 0;
-      font-size: 34px;
-      line-height: 1.2;
+    .courses{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:24px;
     }
 
-    .feature-list {
-      display: grid;
-      gap: 12px;
-      margin-top: 24px;
+    .course-card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,1));
+      border:1px solid #ebf0f5;
+      border-radius:30px;
+      overflow:hidden;
+      box-shadow:0 16px 40px rgba(15,23,42,0.06);
     }
 
-    .feature-item {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 14px 16px;
-      border-radius: 18px;
+    .course-image{
+      height:220px;
+      background-size:cover;
+      background-position:center;
+      position:relative;
     }
 
-    section {
-      padding: 70px 0;
+    .course-image::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(15,23,42,0.02), rgba(15,23,42,0.16));
     }
 
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      align-items: end;
-      margin-bottom: 26px;
+    .course-body{
+      padding:24px;
     }
 
-    .section-head p {
-      margin: 0;
-      color: var(--muted);
+    .course-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      margin-bottom:14px;
     }
 
-    .eyebrow {
-      margin: 0 0 8px;
-      color: var(--muted);
-      text-transform: uppercase;
-      font-size: 13px;
-      letter-spacing: 0.18em;
-      font-weight: bold;
+    .badge-level{
+      background:var(--gold-soft);
+      color:#9a6700;
+      border:1px solid #f7e2b4;
+      border-radius:999px;
+      padding:7px 12px;
+      font-size:12px;
+      font-weight:700;
     }
 
-    .section-head h3 {
-      margin: 0;
-      font-size: 40px;
-      color: var(--primary);
+    .duration{
+      color:var(--muted);
+      font-size:13px;
     }
 
-    .course-grid,
-    .benefits-grid,
-    .steps-grid {
-      display: grid;
-      gap: 22px;
+    .course-body h4{
+      margin:0;
+      font-size:28px;
+      line-height:1.2;
     }
 
-    .course-grid {
-      grid-template-columns: repeat(3, 1fr);
+    .course-body p{
+      color:var(--muted);
+      margin:12px 0 0;
+      min-height:80px;
     }
 
-    .benefits-grid {
-      grid-template-columns: repeat(3, 1fr);
+    .course-points{
+      display:grid;
+      gap:10px;
+      margin-top:16px;
+      color:#334155;
+      font-size:14px;
     }
 
-    .steps-grid {
-      grid-template-columns: repeat(4, 1fr);
+    .course-points span{
+      display:block;
+      background:#f8fafc;
+      border-radius:14px;
+      padding:10px 12px;
     }
 
-    .card {
-      background: var(--white);
-      border-radius: 28px;
-      padding: 24px;
-      border: 1px solid var(--border);
-      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
+    .course-footer{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap:14px;
+      margin-top:20px;
     }
 
-    .course-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 16px;
+    .price small{
+      display:block;
+      color:var(--muted);
+      font-size:12px;
     }
 
-    .tag {
-      display: inline-block;
-      background: #fffbeb;
-      color: var(--primary);
-      padding: 7px 12px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: bold;
+    .price strong{
+      font-size:30px;
+      color:var(--gold);
     }
 
-    .course-card h4 {
-      margin: 0;
-      font-size: 28px;
-      color: var(--primary);
-      line-height: 1.2;
+    .why-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:20px;
     }
 
-    .course-card p {
-      color: var(--muted);
+    .why-card{
+      background:white;
+      border:1px solid #edf2f7;
+      border-radius:26px;
+      padding:24px;
+      box-shadow:0 14px 34px rgba(15,23,42,0.05);
     }
 
-    .price-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 10px;
-      margin-top: 18px;
+    .icon{
+      width:54px;
+      height:54px;
+      border-radius:18px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg, #fff7e6, #ffe4a3);
+      font-size:24px;
+      margin-bottom:16px;
     }
+
+    .why-card h4{
+      margin:0 0 10px;
+      font-size:20px;
+    }
+
+    .why-card p{
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .steps{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:20px;
+    }
+
+    .step{
+      border-radius:28px;
+      padding:24px;
+      background:linear-gradient(180deg, #0f172a, #162235);
+      color:white;
+      box-shadow:0 20px 40px rgba(15,23,42,0.16);
+    }
+
+    .step-no{
+      width:48px;
+      height:48px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg, var(--gold), #fbbf24);
+      color:#111827;
+      font-weight:800;
+      margin-bottom:18px;
+    }
+
+    .step h4{
+      margin:0 0 10px;
+      font-size:22px;
+    }
+
+    .step p{
+      margin:0;
+      color:#cbd5e1;
+      font-size:15px;
+    }
+
+    .testimonials{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+
+    .testimonial{
+      background:white;
+      border:1px solid #edf2f7;
+      border-radius:28px;
+      padding:24px;
+      box-shadow:0 14px 34px rgba(15,23,42,0.05);
+    }
+
+    .stars{
+      color:#f59e0b;
+      font-size:18px;
+      letter-spacing:2px;
+      margin-bottom:14px;
+    }
+
+    .testimonial p{
+      margin:0;
+      color:#334155;
+    }
+
+    .author{
+      margin-top:18px;
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .avatar{
+      width:46px;
+      height:46px;
+      border-radius:50%;
+      background:linear-gradient(135deg,#cbd5e1,#94a3b8);
+      display:grid;
+      place-items:center;
+      color:white;
+      font-weight:700;
+    }
+
+    .author strong{
+      display:block;
+      font-size:15px;
+    }
+
+    .author span{
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .faq-wrap{
+      max-width:900px;
+      margin:0 auto;
+      display:grid;
+      gap:14px;
+    }
+
+    details{
+      background:white;
+      border:1px solid #e8eef5;
+      border-radius:20px;
+      padding:18px 20px;
+      box-shadow:0 10px 24px rgba(15,23,42,0.04);
+    }
+
+    summary{
+      cursor:pointer;
+      font-weight:700;
+      color:#0f172a;
+      list-style:none;
+    }
+
+    summary::-webkit-details-marker{display:none}
 
-    .price small {
-      display: block;
-      color: var(--muted);
+    details p{
+      margin:12px 0 0;
+      color:var(--muted);
     }
 
-    .price strong {
-      font-size: 30px;
-      color: var(--accent);
+    .contact{
+      padding-bottom:90px;
     }
 
-    .benefit-card p {
-      margin: 0;
-      font-size: 18px;
-      font-weight: bold;
+    .contact-box{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+      background:linear-gradient(135deg, #0f172a, #162235 56%, #1d4ed8 140%);
+      border-radius:38px;
+      padding:32px;
+      color:white;
+      box-shadow:0 30px 70px rgba(15,23,42,0.22);
     }
 
-    .steps-grid .card {
-      background: var(--primary);
-      color: var(--white);
-      border: none;
-      box-shadow: 0 16px 30px rgba(15, 23, 42, 0.18);
+    .contact-left{
+      padding:10px;
     }
 
-    .steps-grid h4 {
-      margin: 0;
-      font-size: 22px;
+    .contact-left h3{
+      margin:0;
+      font-size:44px;
+      line-height:1.12;
     }
 
-    .steps-grid p {
-      color: #cbd5e1;
+    .contact-left p{
+      color:#dbeafe;
+      margin-top:14px;
+      max-width:520px;
     }
 
-    .contact-section {
-      background: var(--primary);
+    .contact-points{
+      display:grid;
+      gap:12px;
+      margin-top:22px;
     }
 
-    .contact-wrap {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-      align-items: start;
+    .contact-points div{
+      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:18px;
+      padding:14px 16px;
+      color:#f8fafc;
     }
 
-    .contact-info {
-      color: var(--white);
+    .form-card{
+      background:white;
+      color:var(--text);
+      border-radius:28px;
+      padding:26px;
+      box-shadow:0 20px 50px rgba(0,0,0,0.18);
     }
 
-    .contact-info h3 {
-      font-size: 42px;
-      margin: 8px 0 0;
+    .form-card h4{
+      margin:0;
+      font-size:28px;
     }
 
-    .contact-info p {
-      color: #cbd5e1;
+    .form-card p{
+      margin:8px 0 0;
+      color:var(--muted);
+      font-size:14px;
     }
 
-    .contact-box {
-      background: var(--white);
-      color: var(--text);
-      border-radius: 28px;
-      padding: 26px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.16);
+    .form-grid{
+      display:grid;
+      gap:14px;
+      margin-top:20px;
     }
 
-    .contact-box h4 {
-      margin: 0;
-      font-size: 28px;
-      color: var(--primary);
+    input, select, textarea{
+      width:100%;
+      padding:15px 16px;
+      border-radius:16px;
+      border:1px solid #dbe2ea;
+      outline:none;
+      font-size:15px;
+      font-family:inherit;
+      background:#fff;
     }
 
-    .contact-box .hint {
-      color: var(--muted);
-      font-size: 14px;
-      margin-top: 6px;
+    textarea{
+      min-height:120px;
+      resize:vertical;
     }
 
-    .form-grid {
-      display: grid;
-      gap: 14px;
-      margin-top: 18px;
+    input:focus, select:focus, textarea:focus{
+      border-color:#93c5fd;
+      box-shadow:0 0 0 4px rgba(147,197,253,0.18);
     }
 
-    input,
-    select,
-    textarea {
-      width: 100%;
-      padding: 14px 16px;
-      border-radius: 16px;
-      border: 1px solid #cbd5e1;
-      font-size: 15px;
-      outline: none;
-      font-family: inherit;
+    .form-status{
+      margin-top:12px;
+      font-size:14px;
+      font-weight:700;
     }
 
-    textarea {
-      min-height: 120px;
-      resize: vertical;
+    footer{
+      border-top:1px solid #e5e7eb;
+      background:white;
+      color:var(--muted);
+      padding:24px 0;
+      font-size:14px;
     }
 
-    .form-status {
-      margin-top: 12px;
-      font-size: 14px;
-      font-weight: 600;
+    .footer-inner{
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
     }
 
-    footer {
-      background: var(--white);
-      border-top: 1px solid var(--border);
-      padding: 24px 0;
-      color: var(--muted);
-      font-size: 14px;
+    .mobile-bar{
+      position:fixed;
+      left:0;
+      right:0;
+      bottom:0;
+      z-index:999;
+      background:rgba(255,255,255,0.96);
+      backdrop-filter:blur(12px);
+      border-top:1px solid #e2e8f0;
+      padding:10px 14px;
+      display:none;
     }
 
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      gap: 15px;
-      flex-wrap: wrap;
+    .mobile-bar-inner{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+      max-width:600px;
+      margin:0 auto;
     }
 
-    @media (max-width: 980px) {
-      .hero,
-      .contact-wrap,
-      .course-grid,
-      .benefits-grid,
-      .steps-grid {
-        grid-template-columns: 1fr;
+    @media (max-width:1100px){
+      .hero-grid,
+      .contact-box,
+      .courses,
+      .why-grid,
+      .steps,
+      .testimonials{
+        grid-template-columns:1fr 1fr;
       }
 
-      .hero h2 {
-        font-size: 42px;
-      }
-
-      .section-head {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+      .hero h2{font-size:50px}
     }
 
-    @media (max-width: 760px) {
-      .nav {
-        display: none;
+    @media (max-width:860px){
+      .nav{display:none}
+      .header-cta{display:none}
+
+      .hero-grid,
+      .contact-box,
+      .courses,
+      .why-grid,
+      .steps,
+      .testimonials,
+      .hero-mini{
+        grid-template-columns:1fr;
       }
 
-      .stats {
-        grid-template-columns: 1fr;
+      .hero{
+        padding:46px 0 30px;
       }
 
-      .hero {
-        padding: 44px 0;
+      .hero h2{
+        font-size:38px;
+        letter-spacing:-0.6px;
       }
 
-      .hero h2 {
-        font-size: 34px;
+      .section-top h3,
+      .contact-left h3{
+        font-size:31px;
       }
 
-      .section-head h3,
-      .contact-info h3 {
-        font-size: 30px;
+      .hero-card{
+        min-height:520px;
+      }
+
+      .mobile-bar{
+        display:block;
+      }
+
+      body{
+        padding-bottom:82px;
       }
     }
   </style>
 </head>
-
 <body>
+
   <header class="header">
     <div class="container header-inner">
-      <div class="brand">
-        <h1>Daam Academy</h1>
-        <p>Онлайн сургалт • Чадвар хөгжүүлэлт</p>
+      <div class="logo">
+        <div class="logo-badge">D</div>
+        <div class="logo-text">
+          <h1>Daam Academy</h1>
+          <p>Онлайн сургалт • Ур чадвар • Орлого</p>
+        </div>
       </div>
 
       <nav class="nav">
         <a href="#courses">Сургалтууд</a>
-        <a href="#benefits">Давуу тал</a>
-        <a href="#steps">Алхамууд</a>
+        <a href="#why">Давуу тал</a>
+        <a href="#steps">Алхам</a>
+        <a href="#reviews">Сэтгэгдэл</a>
+        <a href="#faq">FAQ</a>
         <a href="#contact">Бүртгэл</a>
       </nav>
+
+      <div class="header-cta">
+        <a class="btn btn-outline" href="https://wa.me/97699112233" target="_blank">WhatsApp</a>
+        <a class="btn btn-gold" href="#contact">Одоо бүртгүүлэх</a>
+      </div>
     </div>
   </header>
 
   <main>
-    <section class="container hero">
-      <div>
-        <span class="badge">Элсэлт явагдаж байна</span>
-        <h2>Онлайнаар <span>сурч, орлогоо</span> өсгө</h2>
-        <p class="desc">
-          Видео хичээл, шууд уулзалт, дадлага ажилтай онлайн сургалтаар богино
-          хугацаанд хэрэгтэй ур чадвар эзэмшээрэй.
-        </p>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-left">
+          <div class="hero-pill">🔥 Элсэлт нээлттэй • Практик онлайн сургалт</div>
 
-        <div class="btn-row">
-          <a class="btn btn-primary" href="#courses">Сургалтууд үзэх</a>
-          <a class="btn btn-outline" href="#contact">Бүртгүүлэх</a>
+          <h2>
+            Онлайнаар <span>ур чадвар эзэмшиж</span>,
+            өөрийн үнэ цэнэ ба орлогоо өсгө
+          </h2>
+
+          <p class="hero-desc">
+            Daam Academy нь видео хичээл, шууд уулзалт, даалгавар, feedback-тай
+            цогц сургалтаар таныг эхнээс нь ойлгомжтой сургаж,
+            бодит чадвартай болгоно.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-gold" href="#contact">Бүртгүүлэх</a>
+            <a class="btn btn-primary" href="#courses">Сургалтууд үзэх</a>
+            <a class="btn btn-outline" href="https://m.me/yourpage" target="_blank">Messenger</a>
+          </div>
+
+          <div class="hero-mini">
+            <div class="mini-card">
+              <strong>1,200+</strong>
+              <span>Суралцагч</span>
+            </div>
+            <div class="mini-card">
+              <strong>15+</strong>
+              <span>Хөтөлбөр</span>
+            </div>
+            <div class="mini-card">
+              <strong>97%</strong>
+              <span>Сэтгэл ханамж</span>
+            </div>
+          </div>
         </div>
 
-        <div class="social-row">
-          <a class="btn btn-light" href="https://wa.me/97699112233" target="_blank">WhatsApp</a>
-          <a class="btn btn-light" href="https://m.me/yourpage" target="_blank">Messenger</a>
-          <a class="btn btn-light" href="https://t.me/yourusername" target="_blank">Telegram</a>
-        </div>
-
-        <div class="stats">
-          <div class="stat">
-            <strong>1,200+</strong>
-            <span>Суралцагч</span>
+        <div class="hero-right">
+          <div class="floating-badge">
+            <strong>100% Онлайн</strong>
+            <span style="color:#64748b;font-size:13px;">Replay + Mentor feedback</span>
           </div>
-          <div class="stat">
-            <strong>15+</strong>
-            <span>Хөтөлбөр</span>
-          </div>
-          <div class="stat">
-            <strong>97%</strong>
-            <span>Сэтгэл ханамж</span>
-          </div>
-        </div>
-      </div>
 
-      <div class="hero-card">
-        <div class="hero-card-inner">
-          <p class="small">Онцлох багц</p>
-          <h3>Контент бүтээгч starter pack</h3>
-          <p>CapCut видео эдит хийх чадварыг багтаасан практик багц сургалт.</p>
+          <div class="hero-card">
+            <div class="hero-overlay glass">
+              <span class="tag">Онцлох сургалт</span>
+              <h3>Контент бүтээгч Starter Pack</h3>
+              <p>
+                CapCut, контент бүтэц, reel video, social media пост бэлтгэх
+                практик сургалт.
+              </p>
 
-          <div class="feature-list">
-            <div class="feature-item">✔ 100% онлайн</div>
-            <div class="feature-item">✔ Replay үзэх боломжтой</div>
-            <div class="feature-item">✔ Mentor feedback-тэй</div>
+              <div class="feature-list">
+                <div class="feature-item">✔ Анхан шатнаас эхэлнэ</div>
+                <div class="feature-item">✔ Бичлэгээ дахин үзэх боломжтой</div>
+                <div class="feature-item">✔ Даалгавар шалгаж feedback өгнө</div>
+                <div class="feature-item">✔ Утас, компьютер хоёроос үзэж болно</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -554,98 +902,138 @@
 
     <section id="courses">
       <div class="container">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">Сургалтууд</p>
-            <h3>Сонгон суралцах боломжтой хөтөлбөрүүд</h3>
-          </div>
+        <div class="section-top">
+          <span class="eyebrow">Сургалтууд</span>
+          <h3>Танд хамгийн хэрэгтэй, мөнгө болгох ур чадварууд</h3>
+          <p>
+            Сураад шууд ашиглаж болох практик мэдлэгтэй сургалтуудыг сонгоорой.
+          </p>
         </div>
 
-        <div class="course-grid">
-          <div class="card course-card">
-            <div class="course-meta">
-              <span class="tag">Анхан шат</span>
-              <span style="color:#64748b; font-size:14px;">4 долоо хоног</span>
-            </div>
-            <h4>CapCut видео монтаж</h4>
-            <p>
-              видео эвлүүлэх, Transition хийх, Subtitle хийх, Эффект оруулах,
-              Tекст үүсгэх, Filter ашиглах, Дуу засварлах
-            </p>
-            <div class="price-row">
-              <div class="price">
-                <small>Үнэ</small>
-                <strong>89,900₮</strong>
+        <div class="courses">
+          <div class="course-card">
+            <div class="course-image" style="background-image:url('https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?auto=format&fit=crop&w=1200&q=80');"></div>
+            <div class="course-body">
+              <div class="course-top">
+                <span class="badge-level">Анхан шат</span>
+                <span class="duration">4 долоо хоног</span>
               </div>
-              <a class="btn btn-primary" href="#contact">Бүртгүүлэх</a>
+              <h4>CapCut видео монтаж</h4>
+              <p>
+                Video edit, transition, subtitle, effect, text animation, sound edit
+                болон reel/video content хийх чадвар эзэмшинэ.
+              </p>
+
+              <div class="course-points">
+                <span>🎬 Reels, Shorts хийх</span>
+                <span>📝 Subtitle, text animation</span>
+                <span>🎵 Audio цэвэрлэх, sync хийх</span>
+              </div>
+
+              <div class="course-footer">
+                <div class="price">
+                  <small>Эхлэх үнэ</small>
+                  <strong>89,900₮</strong>
+                </div>
+                <a class="btn btn-primary" href="#contact">Бүртгүүлэх</a>
+              </div>
             </div>
           </div>
 
-          <div class="card course-card">
-            <div class="course-meta">
-              <span class="tag">Дунд шат</span>
-              <span style="color:#64748b; font-size:14px;">6 долоо хоног</span>
-            </div>
-            <h4>Photoshop дизайн</h4>
-            <p>
-              Сошиал пост, баннер, thumbnail, постер, зураг засварлах чадвар
-              эзэмшинэ.
-            </p>
-            <div class="price-row">
-              <div class="price">
-                <small>Үнэ</small>
-                <strong>99,900₮</strong>
+          <div class="course-card">
+            <div class="course-image" style="background-image:url('https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1200&q=80');"></div>
+            <div class="course-body">
+              <div class="course-top">
+                <span class="badge-level">Дунд шат</span>
+                <span class="duration">6 долоо хоног</span>
               </div>
-              <a class="btn btn-primary" href="#contact">Бүртгүүлэх</a>
+              <h4>Photoshop дизайн</h4>
+              <p>
+                Сошиал пост, thumbnail, banner, poster, product design,
+                image retouch хийх чадвар эзэмшинэ.
+              </p>
+
+              <div class="course-points">
+                <span>🖼 Social пост дизайн</span>
+                <span>✨ Зураг засвар, retouch</span>
+                <span>📢 Poster, banner бэлтгэх</span>
+              </div>
+
+              <div class="course-footer">
+                <div class="price">
+                  <small>Эхлэх үнэ</small>
+                  <strong>99,900₮</strong>
+                </div>
+                <a class="btn btn-primary" href="#contact">Бүртгүүлэх</a>
+              </div>
             </div>
           </div>
 
-          <div class="card course-card">
-            <div class="course-meta">
-              <span class="tag">Анхан шат</span>
-              <span style="color:#64748b; font-size:14px;">3 долоо хоног</span>
-            </div>
-            <h4>Компьютерийн хэрэглээ анхан шатны сургалт</h4>
-            <p>
-              Форматлах болон хэрэглээний программ суулгах хэрэгтэй
-              мэдээллүүдээ хайх компьютерийн суурь мэдлэгтэй болно
-            </p>
-            <div class="price-row">
-              <div class="price">
-                <small>Үнэ</small>
-                <strong>99,900₮</strong>
+          <div class="course-card">
+            <div class="course-image" style="background-image:url('https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1200&q=80');"></div>
+            <div class="course-body">
+              <div class="course-top">
+                <span class="badge-level">Анхан шат</span>
+                <span class="duration">3 долоо хоног</span>
               </div>
-              <a class="btn btn-primary" href="#contact">Бүртгүүлэх</a>
+              <h4>Компьютерийн анхан шат</h4>
+              <p>
+                Компьютерийн суурь хэрэглээ, программ суулгах, хэрэгтэй мэдээлэл хайх,
+                файлтай ажиллах анхан шатны чадвар эзэмшинэ.
+              </p>
+
+              <div class="course-points">
+                <span>💻 Компьютерийн суурь ойлголт</span>
+                <span>📁 Файл, хавтас зөв ашиглах</span>
+                <span>🛠 Хэрэглээний программ суулгах</span>
+              </div>
+
+              <div class="course-footer">
+                <div class="price">
+                  <small>Эхлэх үнэ</small>
+                  <strong>99,900₮</strong>
+                </div>
+                <a class="btn btn-primary" href="#contact">Бүртгүүлэх</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="benefits" style="background:#ffffff;">
+    <section id="why">
       <div class="container">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">Давуу тал</p>
-            <h3>Яагаад манай платформыг сонгох вэ?</h3>
-          </div>
+        <div class="section-top">
+          <span class="eyebrow">Давуу тал</span>
+          <h3>Яагаад хүмүүс Daam Academy-г сонгодог вэ?</h3>
+          <p>
+            Хүссэн цагтаа сурах боломж, ойлгомжтой заавар, үр дүнд чиглэсэн хөтөлбөр.
+          </p>
         </div>
 
-        <div class="benefits-grid">
-          <div class="card benefit-card">
-            <p>100% онлайн суралцах боломж</p>
+        <div class="why-grid">
+          <div class="why-card">
+            <div class="icon">📱</div>
+            <h4>100% онлайн</h4>
+            <p>Гэрээсээ, ажлаасаа, утас эсвэл компьютер дээрээсээ суралцана.</p>
           </div>
-          <div class="card benefit-card">
-            <p>Видео + шууд уулзалтын хосолсон систем</p>
+
+          <div class="why-card">
+            <div class="icon">🎥</div>
+            <h4>Replay боломж</h4>
+            <p>Хичээлээ дахин үзэж, ойлгоогүй хэсгээ хэдэн ч удаа давтаж болно.</p>
           </div>
-          <div class="card benefit-card">
-            <p>Даалгавар, feedback, шалгалттай</p>
+
+          <div class="why-card">
+            <div class="icon">🧠</div>
+            <h4>Ойлгомжтой заадаг</h4>
+            <p>Анхан шатны суралцагчдад ч амархан ойлгогдох бүтэцтэй.</p>
           </div>
-          <div class="card benefit-card">
-            <p>Гар утас болон компьютер дээр үзнэ</p>
-          </div>
-          <div class="card benefit-card">
-            <p>Монгол хэл дээр ойлгомжтой хөтөлбөр</p>
+
+          <div class="why-card">
+            <div class="icon">💬</div>
+            <h4>Feedback-тэй</h4>
+            <p>Даалгавар дээр засвар зөвлөгөө авч, бодит чадвараа сайжруулна.</p>
           </div>
         </div>
       </div>
@@ -653,81 +1041,174 @@
 
     <section id="steps">
       <div class="container">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">Алхамууд</p>
-            <h3>4 алхмаар бүртгэлээ эхлүүлээрэй</h3>
-          </div>
+        <div class="section-top">
+          <span class="eyebrow">Алхам</span>
+          <h3>Ердөө 4 алхмаар сургалтаа эхлүүлээрэй</h3>
         </div>
 
-        <div class="steps-grid">
-          <div class="card">
-            <h4>1. Сургалтаа сонгох</h4>
-            <p>Сонирхож буй хөтөлбөрөө сонгоод бүртгэлийн form бөглөнө.</p>
+        <div class="steps">
+          <div class="step">
+            <div class="step-no">1</div>
+            <h4>Сургалтаа сонго</h4>
+            <p>Өөрт тохирох хөтөлбөрөө сонгоод form бөглөнө.</p>
           </div>
 
-          <div class="card">
-            <h4>2. Бүртгэл баталгаажих</h4>
-            <p>Илгээсэн мэдээлэл admin-д очиж, тан руу эргэж холбогдоно.</p>
+          <div class="step">
+            <div class="step-no">2</div>
+            <h4>Бүртгэлээ илгээ</h4>
+            <p>Таны мэдээлэл бидэнд ирж баталгаажуулалт хийнэ.</p>
           </div>
 
-          <div class="card">
-            <h4>3. Төлбөрөө хийх</h4>
-            <p>Төлбөр баталгаажсаны дараа суралцах эрх болон заавар илгээгдэнэ.</p>
+          <div class="step">
+            <div class="step-no">3</div>
+            <h4>Төлбөрөө баталгаажуул</h4>
+            <p>Төлбөр хийгдсэний дараа хичээлийн заавар илгээгдэнэ.</p>
           </div>
 
-          <div class="card">
-            <h4>4. Хичээлээ эхлэх</h4>
-            <p>Видео, материал, live уулзалтад хамрагдаж сургалтаа эхэлнэ.</p>
+          <div class="step">
+            <div class="step-no">4</div>
+            <h4>Сургалтаа эхэл</h4>
+            <p>Видео, материал, live уулзалтаар хичээлээ шууд эхэлнэ.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="contact-section">
-      <div class="container contact-wrap">
-        <div class="contact-info">
-          <p class="eyebrow" style="color:#cbd5e1;">Бүртгэл ба холбоо барих</p>
-          <h3>Шууд бүртгэлийн формтой бэлэн сайт</h3>
-
-          <div style="margin-top:28px; color:#e2e8f0;">
-            <p>📞 +976 9911 2233</p>
-            <p>✉️ wedaam5@gmail.com</p>
-            <p>🌐 www.daamacademy.mn</p>
-            <p>💬 WhatsApp / Messenger / Telegram товчтой</p>
-          </div>
+    <section id="reviews">
+      <div class="container">
+        <div class="section-top">
+          <span class="eyebrow">Сэтгэгдэл</span>
+          <h3>Манай суралцагчид ингэж үнэлж байна</h3>
         </div>
 
+        <div class="testimonials">
+          <div class="testimonial">
+            <div class="stars">★★★★★</div>
+            <p>
+              “CapCut сургалт маш ойлгомжтой байсан. Өмнө нь огт edit хийж үзээгүй мөртлөө
+              одоо reel видеогоо өөрөө хийдэг болсон.”
+            </p>
+            <div class="author">
+              <div class="avatar">A</div>
+              <div>
+                <strong>Anu</strong>
+                <span>Контент бүтээгч</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial">
+            <div class="stars">★★★★★</div>
+            <p>
+              “Photoshop сургалтаар постер, сошиал пост өөрөө хийж сурсан.
+              Маш цэгцтэй заадаг болохоор дагаж хийхэд амар байсан.”
+            </p>
+            <div class="author">
+              <div class="avatar">B</div>
+              <div>
+                <strong>Bolor</strong>
+                <span>Жижиг бизнес эрхлэгч</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial">
+            <div class="stars">★★★★★</div>
+            <p>
+              “Компьютерийн анхан шатны сургалт миний айдсыг арилгасан.
+              Одоо файл, программ, интернетээ өөрөө төвөггүй ашигладаг болсон.”
+            </p>
+            <div class="author">
+              <div class="avatar">M</div>
+              <div>
+                <strong>Munkhzul</strong>
+                <span>Шинэ суралцагч</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <div class="section-top">
+          <span class="eyebrow">FAQ</span>
+          <h3>Түгээмэл асуултууд</h3>
+        </div>
+
+        <div class="faq-wrap">
+          <details>
+            <summary>Хичээлээ гар утсаар үзэж болох уу?</summary>
+            <p>Тийм. Гар утас, таблет, компьютер бүх төхөөрөмжөөс үзэх боломжтой.</p>
+          </details>
+
+          <details>
+            <summary>Анхан шатны хүн сууж болох уу?</summary>
+            <p>Болно. Хөтөлбөрүүдийг эхнээс нь тайлбарлаж, алхам алхмаар заадаг.</p>
+          </details>
+
+          <details>
+            <summary>Хичээлээ дахин үзэж болох уу?</summary>
+            <p>Тийм. Replay боломжтой тул ойлгоогүй хэсгээ дахин үзэж болно.</p>
+          </details>
+
+          <details>
+            <summary>Бүртгүүлсний дараа яаж хичээлдээ ордог вэ?</summary>
+            <p>Төлбөр баталгаажсаны дараа танд хичээл үзэх заавар болон холбоос илгээгдэнэ.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
         <div class="contact-box">
-          <h4>Бүртгүүлэх</h4>
-          <div class="hint">Форм бөглөхөд мэдээлэл Google Sheet-д хадгалагдана.</div>
+          <div class="contact-left">
+            <span class="eyebrow" style="background:rgba(245,158,11,0.14); color:#fde68a; border-color:rgba(245,158,11,0.18);">Бүртгэл</span>
+            <h3>Өнөөдрөөс өөрийгөө хөгжүүлж эхэл</h3>
+            <p>
+              Форм бөглөөд бүртгүүлээрэй. Тан руу эргэж холбогдон сургалтын мэдээлэл,
+              төлбөр болон эхлэх зааврыг илгээнэ.
+            </p>
 
-          <form
-            id="registrationForm"
-            class="form-grid"
-            action="https://script.google.com/macros/s/AKfycbxFz5I_KjWgxF_8P3JEmz0mKVBoEZPJkDwai0NjG-HNcafANIvh5far11Pvl-jDC-kr/exec"
-            method="POST"
-            target="hidden_iframe"
-            onsubmit="submitted=true; showSendingState();"
-          >
-            <input type="text" name="name" placeholder="Нэр" required />
-            <input type="tel" name="phone" placeholder="Утасны дугаар" required />
-            <input type="email" name="email" placeholder="И-мэйл" />
+            <div class="contact-points">
+              <div>📞 +976 9911 2233</div>
+              <div>✉️ wedaam5@gmail.com</div>
+              <div>💬 WhatsApp / Messenger / Telegram-аар холбогдох боломжтой</div>
+              <div>🌐 www.daamacademy.mn</div>
+            </div>
+          </div>
 
-            <select name="course" required>
-              <option value="">Сонирхож буй сургалт</option>
-              <option>CapCut видео монтаж</option>
-              <option>Photoshop дизайн</option>
-              <option>Компьютерийн хэрэглээ анхан шатны сургалт</option>
-            </select>
+          <div class="form-card">
+            <h4>Бүртгүүлэх form</h4>
+            <p>Форм бөглөхөд мэдээлэл Google Sheet-д автоматаар хадгалагдана.</p>
 
-            <textarea name="message" placeholder="Нэмэлт мэдээлэл"></textarea>
+            <form
+              id="registrationForm"
+              class="form-grid"
+              action="https://script.google.com/macros/s/AKfycbxFz5I_KjWgxF_8P3JEmz0mKVBoEZPJkDwai0NjG-HNcafANIvh5far11Pvl-jDC-kr/exec"
+              method="POST"
+              target="hidden_iframe"
+              onsubmit="submitted=true; showSendingState();"
+            >
+              <input type="text" name="name" placeholder="Нэр" required />
+              <input type="tel" name="phone" placeholder="Утасны дугаар" required />
+              <input type="email" name="email" placeholder="И-мэйл" />
+              <select name="course" required>
+                <option value="">Сонирхож буй сургалт</option>
+                <option>CapCut видео монтаж</option>
+                <option>Photoshop дизайн</option>
+                <option>Компьютерийн анхан шатны сургалт</option>
+              </select>
+              <textarea name="message" placeholder="Нэмэлт мэдээлэл"></textarea>
 
-            <button class="btn btn-primary" type="submit" id="submitBtn">Илгээх</button>
-            <div id="formStatus" class="form-status"></div>
-          </form>
+              <button class="btn btn-gold" type="submit" id="submitBtn">Одоо бүртгүүлэх</button>
+              <div id="formStatus" class="form-status"></div>
+            </form>
 
-          <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+          </div>
         </div>
       </div>
     </section>
@@ -735,10 +1216,17 @@
 
   <footer>
     <div class="container footer-inner">
-      <div>© 2026 Gerelt Academy. Бүх эрх хуулиар хамгаалагдсан.</div>
-      <div>Домэйнд байршуулахад бэлэн • Mobile responsive • Lead form ready</div>
+      <div>© 2026 Daam Academy. Бүх эрх хуулиар хамгаалагдсан.</div>
+      <div>Premium landing page • Mobile responsive • Lead form ready</div>
     </div>
   </footer>
+
+  <div class="mobile-bar">
+    <div class="mobile-bar-inner">
+      <a class="btn btn-outline" href="https://wa.me/97699112233" target="_blank">Chat</a>
+      <a class="btn btn-gold" href="#contact">Бүртгүүлэх</a>
+    </div>
+  </div>
 
   <script>
     let submitted = false;
@@ -757,11 +1245,11 @@
 
     iframe.addEventListener("load", function () {
       if (submitted) {
-        status.textContent = "Амжилттай бүртгэгдлээ.";
+        status.textContent = "Амжилттай бүртгэгдлээ. Бид удахгүй холбогдоно.";
         status.style.color = "green";
         form.reset();
         submitBtn.disabled = false;
-        submitBtn.textContent = "Илгээх";
+        submitBtn.textContent = "Одоо бүртгүүлэх";
         submitted = false;
       }
     });
