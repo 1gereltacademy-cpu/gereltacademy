@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gerelt Academy | Онлайн сургалт</title>
+
   <style>
     :root {
       --primary: #0f172a;
@@ -17,7 +18,9 @@
       --bg: #f8fafc;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     html {
       scroll-behavior: smooth;
@@ -46,7 +49,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(255,255,255,0.92);
+      background: rgba(255, 255, 255, 0.92);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
     }
@@ -112,7 +115,8 @@
       max-width: 620px;
     }
 
-    .btn-row, .social-row {
+    .btn-row,
+    .social-row {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
@@ -178,59 +182,45 @@
       font-size: 14px;
     }
 
-    .hero-visual {
-      position: relative;
-      min-height: 520px;
+    .hero-card {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 60%, var(--accent) 140%);
+      color: var(--white);
       border-radius: 32px;
-      overflow: hidden;
+      padding: 24px;
       box-shadow: 0 20px 50px rgba(15, 23, 42, 0.22);
-      background: #0f172a;
     }
 
-    .hero-visual img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
+    .hero-card-inner {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      padding: 24px;
+      backdrop-filter: blur(10px);
     }
 
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        180deg,
-        rgba(15, 23, 42, 0.15) 0%,
-        rgba(15, 23, 42, 0.55) 55%,
-        rgba(15, 23, 42, 0.88) 100%
-      );
-    }
-
-    .hero-content-box {
-      position: absolute;
-      left: 24px;
-      right: 24px;
-      bottom: 24px;
-      color: white;
-      z-index: 2;
-    }
-
-    .hero-content-box .small {
-      margin: 0 0 8px;
+    .hero-card p.small {
+      margin: 0;
       font-size: 13px;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: #e2e8f0;
     }
 
-    .hero-content-box h3 {
-      margin: 0 0 10px;
-      font-size: 32px;
+    .hero-card h3 {
+      margin: 12px 0;
+      font-size: 34px;
       line-height: 1.2;
     }
 
-    .hero-content-box p {
-      margin: 0;
-      color: #e2e8f0;
+    .feature-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .feature-item {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 14px 16px;
+      border-radius: 18px;
     }
 
     section {
@@ -265,7 +255,9 @@
       color: var(--primary);
     }
 
-    .course-grid, .benefits-grid, .steps-grid {
+    .course-grid,
+    .benefits-grid,
+    .steps-grid {
       display: grid;
       gap: 22px;
     }
@@ -288,22 +280,6 @@
       padding: 24px;
       border: 1px solid var(--border);
       box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
-      height: 100%;
-    }
-
-    .course-card {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-    }
-
-    .course-img {
-      width: 100%;
-      height: 190px;
-      object-fit: cover;
-      border-radius: 20px;
-      margin-bottom: 14px;
-      display: block;
     }
 
     .course-meta {
@@ -333,7 +309,6 @@
 
     .course-card p {
       color: var(--muted);
-      flex-grow: 1;
     }
 
     .price-row {
@@ -341,7 +316,7 @@
       justify-content: space-between;
       align-items: end;
       gap: 10px;
-      margin-top: auto;
+      margin-top: 18px;
     }
 
     .price small {
@@ -352,22 +327,6 @@
     .price strong {
       font-size: 30px;
       color: var(--accent);
-    }
-
-    .benefit-card {
-      overflow: hidden;
-      padding: 0;
-    }
-
-    .benefit-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .benefit-card .benefit-text {
-      padding: 18px;
     }
 
     .benefit-card p {
@@ -412,32 +371,8 @@
       margin: 8px 0 0;
     }
 
-    .contact-info h4 {
-      margin: 10px 0 0;
-      color: #e2e8f0;
-    }
-
     .contact-info p {
       color: #cbd5e1;
-    }
-
-    .contact-info-card {
-      margin-top: 24px;
-      overflow: hidden;
-      border-radius: 24px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.06);
-    }
-
-    .contact-info-card img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .contact-info-card .info-body {
-      padding: 18px;
     }
 
     .contact-box {
@@ -445,7 +380,7 @@
       color: var(--text);
       border-radius: 28px;
       padding: 26px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.16);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.16);
     }
 
     .contact-box h4 {
@@ -466,7 +401,9 @@
       margin-top: 18px;
     }
 
-    input, select, textarea {
+    input,
+    select,
+    textarea {
       width: 100%;
       padding: 14px 16px;
       border-radius: 16px;
@@ -503,20 +440,16 @@
     }
 
     @media (max-width: 980px) {
-      .hero, .contact-wrap, .course-grid, .benefits-grid, .steps-grid {
+      .hero,
+      .contact-wrap,
+      .course-grid,
+      .benefits-grid,
+      .steps-grid {
         grid-template-columns: 1fr;
       }
 
       .hero h2 {
         font-size: 42px;
-      }
-
-      .hero-visual {
-        min-height: 380px;
-      }
-
-      .hero-content-box h3 {
-        font-size: 26px;
       }
 
       .section-head {
@@ -549,11 +482,12 @@
     }
   </style>
 </head>
+
 <body>
   <header class="header">
     <div class="container header-inner">
       <div class="brand">
-        <h1>Gerelt Academy</h1>
+        <h1>Daam Academy</h1>
         <p>Онлайн сургалт • Чадвар хөгжүүлэлт</p>
       </div>
 
@@ -572,13 +506,13 @@
         <span class="badge">Элсэлт явагдаж байна</span>
         <h2>Онлайнаар <span>сурч, орлогоо</span> өсгө</h2>
         <p class="desc">
-          Видео хичээл, шууд уулзалт, дадлага ажилтай онлайн сургалтаар богино хугацаанд
-          хэрэгтэй ур чадвар эзэмшээрэй.
+          Видео хичээл, шууд уулзалт, дадлага ажилтай онлайн сургалтаар богино
+          хугацаанд хэрэгтэй ур чадвар эзэмшээрэй.
         </p>
 
         <div class="btn-row">
           <a class="btn btn-primary" href="#courses">Сургалтууд үзэх</a>
-          <a class="hero-btn" href="#contact">Бүртгүүлэх</a>
+          <a class="btn btn-outline" href="#contact">Бүртгүүлэх</a>
         </div>
 
         <div class="social-row">
@@ -588,19 +522,32 @@
         </div>
 
         <div class="stats">
-          <div class="stat"><strong>1,200+</strong><span>Суралцагч</span></div>
-          <div class="stat"><strong>15+</strong><span>Хөтөлбөр</span></div>
-          <div class="stat"><strong>97%</strong><span>Сэтгэл ханамж</span></div>
+          <div class="stat">
+            <strong>1,200+</strong>
+            <span>Суралцагч</span>
+          </div>
+          <div class="stat">
+            <strong>15+</strong>
+            <span>Хөтөлбөр</span>
+          </div>
+          <div class="stat">
+            <strong>97%</strong>
+            <span>Сэтгэл ханамж</span>
+          </div>
         </div>
       </div>
 
-      <div class="hero-visual">
-        <img src="images/hero.jpg" alt="Онлайн сургалт" />
-        <div class="hero-overlay"></div>
-        <div class="hero-content-box">
+      <div class="hero-card">
+        <div class="hero-card-inner">
           <p class="small">Онцлох багц</p>
           <h3>Контент бүтээгч starter pack</h3>
           <p>CapCut видео эдит хийх чадварыг багтаасан практик багц сургалт.</p>
+
+          <div class="feature-list">
+            <div class="feature-item">✔ 100% онлайн</div>
+            <div class="feature-item">✔ Replay үзэх боломжтой</div>
+            <div class="feature-item">✔ Mentor feedback-тэй</div>
+          </div>
         </div>
       </div>
     </section>
@@ -616,47 +563,53 @@
 
         <div class="course-grid">
           <div class="card course-card">
-            <img src="images/capcut.jpg" alt="CapCut видео монтаж" class="course-img" />
             <div class="course-meta">
               <span class="tag">Анхан шат</span>
-              <span style="color:#64748b; font-size:14px;">2 долоо хоног</span>
+              <span style="color:#64748b; font-size:14px;">4 долоо хоног</span>
             </div>
             <h4>CapCut видео монтаж</h4>
-            <p>Видео эвлүүлэх, transition хийх, subtitle хийх, эффект оруулах, текст үүсгэх, filter ашиглах, дуу засварлах.</p>
+            <p>
+              видео эвлүүлэх, Transition хийх, Subtitle хийх, Эффект оруулах,
+              Tекст үүсгэх, Filter ашиглах, Дуу засварлах
+            </p>
             <div class="price-row">
               <div class="price">
                 <small>Үнэ</small>
                 <strong>89,900₮</strong>
               </div>
-              <a class="hero-btn" href="#contact">Бүртгүүлэх</a>
+              <a class="btn btn-primary" href="#contact">Бүртгүүлэх</a>
             </div>
           </div>
 
           <div class="card course-card">
-            <img src="images/photoshop.jpg" alt="Photoshop дизайн" class="course-img" />
             <div class="course-meta">
-              <span class="tag">Анхан шат</span>
-              <span style="color:#64748b; font-size:14px;">5 долоо хоног</span>
+              <span class="tag">Дунд шат</span>
+              <span style="color:#64748b; font-size:14px;">6 долоо хоног</span>
             </div>
             <h4>Photoshop дизайн</h4>
-            <p>Сошиал пост, баннер, thumbnail, постер, зураг засварлах чадвар эзэмшинэ.</p>
+            <p>
+              Сошиал пост, баннер, thumbnail, постер, зураг засварлах чадвар
+              эзэмшинэ.
+            </p>
             <div class="price-row">
               <div class="price">
                 <small>Үнэ</small>
                 <strong>99,900₮</strong>
               </div>
-              <a class="hero-btn" href="#register">Бүртгүүлэх</a>
+              <a class="btn btn-primary" href="#contact">Бүртгүүлэх</a>
             </div>
           </div>
 
           <div class="card course-card">
-            <img src="images/computer.jpg" alt="Компьютерийн хэрэглээ анхан шатны сургалт" class="course-img" />
             <div class="course-meta">
               <span class="tag">Анхан шат</span>
               <span style="color:#64748b; font-size:14px;">3 долоо хоног</span>
             </div>
             <h4>Компьютерийн хэрэглээ анхан шатны сургалт</h4>
-            <p>Форматлах, хэрэглээний программ суулгах, хэрэгтэй мэдээллээ хайх, компьютерийн суурь мэдлэгтэй болно.</p>
+            <p>
+              Форматлах болон хэрэглээний программ суулгах хэрэгтэй
+              мэдээллүүдээ хайх компьютерийн суурь мэдлэгтэй болно
+            </p>
             <div class="price-row">
               <div class="price">
                 <small>Үнэ</small>
@@ -680,38 +633,19 @@
 
         <div class="benefits-grid">
           <div class="card benefit-card">
-            <img src="images/online.jpg" alt="Онлайн суралцах" />
-            <div class="benefit-text">
-              <p>100% онлайн суралцах боломж</p>
-            </div>
+            <p>100% онлайн суралцах боломж</p>
           </div>
-
           <div class="card benefit-card">
-            <img src="images/zoom.jpg" alt="Видео хичээл" />
-            <div class="benefit-text">
-              <p>Видео + шууд уулзалтын хосолсон систем</p>
-            </div>
+            <p>Видео + шууд уулзалтын хосолсон систем</p>
           </div>
-
           <div class="card benefit-card">
-            <img src="images/photoshop.jpg" alt="Даалгавар ба feedback" />
-            <div class="benefit-text">
-              <p>Даалгавар, feedback, шалгалттай</p>
-            </div>
+            <p>Даалгавар, feedback, шалгалттай</p>
           </div>
-
           <div class="card benefit-card">
-            <img src="images/phone.jpg" alt="Гар утас болон компьютер дээр" />
-            <div class="benefit-text">
-              <p>Гар утас болон компьютер дээр үзнэ</p>
-            </div>
+            <p>Гар утас болон компьютер дээр үзнэ</p>
           </div>
-
           <div class="card benefit-card">
-            <img src="images/bagsh.jpg" alt="Монгол хэл дээр ойлгомжтой" />
-            <div class="benefit-text">
-              <p>Монгол хэл дээр ойлгомжтой хөтөлбөр</p>
-            </div>
+            <p>Монгол хэл дээр ойлгомжтой хөтөлбөр</p>
           </div>
         </div>
       </div>
@@ -754,29 +688,24 @@
       <div class="container contact-wrap">
         <div class="contact-info">
           <p class="eyebrow" style="color:#cbd5e1;">Бүртгэл ба холбоо барих</p>
-          <h3>Данс:</h3>
-          <h3>020004000 439005142</h3>
-          <h3>Банк: TDB</h3>
-          <h3>Нэр: Б.Анар</h3>
-          <h4>Гүйлгээний утга: Утасны дугаар</h4>
+          <h3>Шууд бүртгэлийн формтой бэлэн сайт</h3>
 
           <div style="margin-top:28px; color:#e2e8f0;">
-            <p>📞 +976 7223 7326</p>
-            <p>✉️ 1gereltacademy@gmail.com</p>
-            <p>🌐 www.gereltacademy.mn</p>
+            <p>📞 +976 9911 2233</p>
+            <p>✉️ wedaam5@gmail.com</p>
+            <p>🌐 www.daamacademy.mn</p>
             <p>💬 WhatsApp / Messenger / Telegram товчтой</p>
           </div>
         </div>
 
         <div class="contact-box">
           <h4>Бүртгүүлэх</h4>
-        
+          <div class="hint">Форм бөглөхөд мэдээлэл Google Sheet-д хадгалагдана.</div>
 
           <form
-            
             id="registrationForm"
             class="form-grid"
-            action="https://script.google.com/macros/s/AKfycbwYJs_TI_GjTzsNNUrbX1uqEGsZ5pybHVV2Jr4DkHT_D1DLqcQh_79dtwIk8hrzeuiF/exec"
+            action="https://script.google.com/macros/s/AKfycbxFz5I_KjWgxF_8P3JEmz0mKVBoEZPJkDwai0NjG-HNcafANIvh5far11Pvl-jDC-kr/exec"
             method="POST"
             target="hidden_iframe"
             onsubmit="submitted=true; showSendingState();"
@@ -787,7 +716,7 @@
 
             <select name="course" required>
               <option value="">Сонирхож буй сургалт</option>
-              <option>CapCut видео эдит</option>
+              <option>CapCut видео монтаж</option>
               <option>Photoshop дизайн</option>
               <option>Компьютерийн хэрэглээ анхан шатны сургалт</option>
             </select>
