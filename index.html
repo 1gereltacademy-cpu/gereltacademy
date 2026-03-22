@@ -41,7 +41,11 @@
 
     img { max-width: 100%; display: block; }
     a { text-decoration: none; color: inherit; }
-    .container { width: min(var(--container), calc(100% - 32px)); margin: 0 auto; }
+
+    .container {
+      width: min(var(--container), calc(100% - 32px));
+      margin: 0 auto;
+    }
 
     .btn {
       display: inline-flex;
@@ -392,6 +396,7 @@
 
     .course-content {
       padding: 24px;
+      text-align: center;
     }
 
     .tag {
@@ -417,7 +422,7 @@
 
     .course-meta {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       color: #334155;
       font-size: 14px;
       font-weight: 700;
@@ -467,13 +472,18 @@
 
     .course-actions {
       display: flex;
+      flex-direction: column;
+      align-items: center;
       gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 18px;
     }
 
     .course-actions .btn {
-      flex: 1 1 220px;
+      width: 90%;
+      max-width: 320px;
+      padding: 14px 20px;
+      font-size: 16px;
+      border-radius: 999px;
+      flex: 0 0 auto;
     }
 
     .pricing-card { position: relative; }
@@ -609,6 +619,15 @@
       font-size: 18px;
     }
 
+    .cta-btn {
+      width: auto;
+      min-width: 220px;
+      max-width: 280px;
+      padding: 14px 32px;
+      margin: 0 auto;
+      display: inline-flex;
+    }
+
     .qpay-card {
       background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
       color: #fff;
@@ -628,7 +647,7 @@
     .qpay-qr {
       background: #fff;
       border-radius: 24px;
-      padding: 20px;
+      padding: 10px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -637,11 +656,12 @@
 
     .qpay-qr img {
       width: 100%;
-      max-width: 360px;
+      max-width: 400px;
       height: auto;
       border-radius: 16px;
       display: block;
       object-fit: contain;
+	  margin-bottom:60px;
     }
 
     .qpay-info {
@@ -789,42 +809,83 @@
     }
 
     @media (max-width: 768px) {
-      .menu { display: none; }
+      .menu {
+        display: none;
+      }
 
-      .hero-stats,
+      .container {
+        width: min(var(--container), calc(100% - 20px));
+        padding: 0 12px;
+      }
+
+      section {
+        padding: 70px 0;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-grid,
       .courses,
+      .why-grid,
       .testimonials-grid,
+      .contact-wrap,
       .grid-2,
       .floating-box,
-      .countdown,
-      .qpay-grid {
+      .qpay-grid,
+      .hero-stats,
+      .countdown {
         grid-template-columns: 1fr;
       }
 
-      section { padding: 70px 0; }
-      .hero { min-height: auto; }
-      .hero-grid { padding: 54px 0; }
+      .hero-grid {
+        padding: 54px 0;
+      }
+
       .hero-card img,
-      .why-image img { min-height: auto; height: auto; }
+      .why-image img {
+        min-height: auto;
+        height: auto;
+      }
 
       .section-head p,
       .hero p,
-      .cta p { font-size: 16px; }
+      .cta p {
+        font-size: 16px;
+      }
 
       .hero-actions,
-      .course-actions,
       .course-meta {
         flex-direction: column;
         align-items: stretch;
       }
 
-      .btn,
-      .course-actions .btn {
+      .hero-actions .btn {
         width: 100%;
       }
 
-      .container {
-        width: min(var(--container), calc(100% - 20px));
+      .course-actions {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .course-actions .btn {
+        width: 90%;
+        max-width: 320px;
+        padding: 14px 20px;
+        font-size: 16px;
+        border-radius: 999px;
+        flex: 0 0 auto;
+      }
+
+      .cta-btn {
+        width: auto;
+        min-width: 200px;
+        max-width: 260px;
+        padding: 14px 28px;
       }
 
       .qpay-card,
@@ -834,6 +895,10 @@
       .testimonial,
       .why-item {
         border-radius: 22px;
+      }
+
+      .qpay-card {
+        padding: 20px;
       }
 
       .new-price {
@@ -892,8 +957,8 @@
         <div class="eyebrow">✨ Шинэ үеийн онлайн сургалтын платформ</div>
         <h1>Ирээдүйн ур чадвараа өнөөдрөөс эхлүүл.</h1>
         <p>
-          Видео засвар, график дизайн, оффис программ, онлайн ур чадварын сургалтуудыг
-          мэргэжлийн багшаас premium орчинд сураарай.
+          Видео засвар, График дизайн, Компьютерийн хэрэглээ, төрлөөр ур чадварын сургалтуудыг
+          мэргэжлийн багшаас premium орчинд сураарай
         </p>
 
         <div class="hero-actions">
@@ -937,8 +1002,8 @@
             Шууд хичээл + бичлэг үзэх боломж
           </div>
           <div class="mini-box">
-            <strong>Certificate</strong>
-            Дүүргэсний батламжтай
+            <strong>Мэргэжлийн багш</strong>
+            Томоохон компаниудад рийл дээр ажиллаж байсан туршлагатай
           </div>
         </div>
       </div>
@@ -955,21 +1020,21 @@
 
       <div class="courses">
         <article class="course-card pricing-card">
-          <div class="ribbon">-25%</div>
+          <div class="ribbon">-40%</div>
           <img src="https://images.unsplash.com/photo-1574717024453-3540560d7d6f?auto=format&fit=crop&w=1200&q=80" alt="Видео засвар" />
           <div class="course-content">
             <div class="tag">Видео & Reels</div>
-            <h3>Видео засвар</h3>
-            <p>CapCut, Premiere Pro ашиглан social контент бүтээж сурна.</p>
+            <h3>Capcut сургалт</h3>
+            <p>CapCut, ашиглан social контент видео эвлүүлэг хийж сурна.</p>
             <div class="course-meta">
-              <span>8 долоо хоног</span>
+              <span>2 долоо хоног</span>
               <span>Анхан шат</span>
             </div>
             <div class="course-price">
               <div class="course-price-top">
-                <span class="old-price">200,000₮</span>
-                <span class="new-price">150,000₮</span>
-                <span class="discount-chip">25% OFF</span>
+                <span class="old-price">150,000₮</span>
+                <span class="new-price">90,000₮</span>
+                <span class="discount-chip">40% OFF</span>
               </div>
             </div>
             <div class="course-actions">
@@ -979,21 +1044,21 @@
         </article>
 
         <article class="course-card pricing-card">
-          <div class="ribbon">-17%</div>
+          <div class="ribbon">-40%</div>
           <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1200&q=80" alt="График дизайн" />
           <div class="course-content">
             <div class="tag">Design</div>
             <h3>График дизайн</h3>
-            <p>Photoshop, Illustrator ашиглан poster, social post, brand visual хийнэ.</p>
+            <p>Photoshop ашиглан poster, social post, эх бэлтгэл хийх мэдлэгтэй болно.</p>
             <div class="course-meta">
-              <span>10 долоо хоног</span>
-              <span>Дунд шат</span>
+              <span>5 долоо хоног</span>
+              <span>Анхан шат</span>
             </div>
             <div class="course-price">
               <div class="course-price-top">
-                <span class="old-price">300,000₮</span>
-                <span class="new-price">250,000₮</span>
-                <span class="discount-chip">17% OFF</span>
+                <span class="old-price">150,000₮</span>
+                <span class="new-price">90,000₮</span>
+                <span class="discount-chip">40% OFF</span>
               </div>
             </div>
             <div class="course-actions">
@@ -1003,21 +1068,21 @@
         </article>
 
         <article class="course-card pricing-card">
-          <div class="ribbon">-20%</div>
+          <div class="ribbon">-50%</div>
           <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80" alt="Оффис программ" />
           <div class="course-content">
-            <div class="tag">Office Skills</div>
-            <h3>Оффис программ</h3>
-            <p>Word, Excel, PowerPoint дээр мэргэжлийн түвшинд ажиллаж сурна.</p>
+            <div class="tag">Computer Skills</div>
+            <h3>Компьютерийн хэрэглээ</h3>
+            <p>Компьютерийн хэрхэн ашиглах, интернет орчинд хэрэглэх талаар сурна.</p>
             <div class="course-meta">
-              <span>6 долоо хоног</span>
+              <span>10 долоо хоног</span>
               <span>Бүх түвшин</span>
             </div>
             <div class="course-price">
               <div class="course-price-top">
-                <span class="old-price">150,000₮</span>
-                <span class="new-price">120,000₮</span>
-                <span class="discount-chip">20% OFF</span>
+                <span class="old-price">300,000₮</span>
+                <span class="new-price">150,000₮</span>
+                <span class="discount-chip">50% OFF</span>
               </div>
             </div>
             <div class="course-actions">
@@ -1121,7 +1186,7 @@
       <div class="cta">
         <h2>Өнөөдрөөс шинэ чадвар сурч эхэл</h2>
         <p>Чи зөвхөн үзэх биш, бодитоор хийж сурна. Хичээлдээ бүртгүүлээд дараагийн түвшинд гараарай.</p>
-        <a href="#contact" class="btn btn-primary">Одоо бүртгүүлэх</a>
+        <a href="#contact" class="btn btn-primary cta-btn">Одоо бүртгүүлэх</a>
       </div>
     </div>
   </section>
@@ -1146,15 +1211,15 @@
             </div>
             <div class="qpay-item">
               <strong>Данс</strong>
-              020004000   439005142
+              020004000 439005142
             </div>
             <div class="qpay-item">
               <strong>Гүйлгээний утга</strong>
-              Нэр, Утаcны дугаар
+              Нэр, Утасны дугаар
             </div>
             <div class="course-actions">
               <a href="#contact" class="btn btn-primary">Төлсөн учраас бүртгүүлэх</a>
-              <a href="tel:99112233" class="btn btn-outline">Утсаар холбогдох</a>
+              <a href="tel:7237326" class="btn btn-outline">Утсаар холбогдох</a>
             </div>
           </div>
         </div>
@@ -1220,7 +1285,7 @@
 
   <div class="sticky-contact">
     <a class="floating-action messenger-btn" href="https://m.me/yourpage" target="_blank" aria-label="Messenger">✉</a>
-    <a class="floating-action call-btn" href="tel:99112233" aria-label="Call">☎</a>
+    <a class="floating-action call-btn" href="tel:7237326" aria-label="Call">☎</a>
   </div>
 
   <script>
