@@ -4,189 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gerelt Academy | Онлайн сургалт</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800&display=swap" rel="stylesheet">
+
   <style>
-    .sale-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 16px;
-      border-radius: 999px;
-      background: rgba(245, 158, 11, 0.18);
-      border: 1px solid rgba(245, 158, 11, 0.35);
-      color: #fff7ed;
-      font-size: 14px;
-      font-weight: 700;
-      margin-bottom: 18px;
-    }
-
-    .countdown {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin: 22px 0 0;
-      max-width: 560px;
-    }
-
-    .count-box {
-      background: rgba(255,255,255,.1);
-      border: 1px solid rgba(255,255,255,.14);
-      border-radius: 20px;
-      padding: 16px 10px;
-      text-align: center;
-      backdrop-filter: blur(12px);
-    }
-
-    .count-box strong {
-      display: block;
-      font-size: 30px;
-      color: #fff;
-      line-height: 1;
-      margin-bottom: 6px;
-    }
-
-    .count-box span {
-      font-size: 13px;
-      color: #cbd5e1;
-    }
-
-    .price-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin: 12px 0 18px;
-    }
-
-    .old-price {
-      color: #94a3b8;
-      text-decoration: line-through;
-      font-size: 18px;
-      font-weight: 700;
-    }
-
-    .new-price {
-      color: #0f172a;
-      font-size: 34px;
-      font-weight: 900;
-      line-height: 1;
-    }
-
-    .discount-chip {
-      display: inline-block;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: #dc2626;
-      color: #fff;
-      font-size: 12px;
-      font-weight: 800;
-    }
-
-    .course-price {
-      margin: 12px 0 18px;
-      display: grid;
-      gap: 8px;
-    }
-
-    .course-price-top {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .course-actions {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 18px;
-    }
-
-    .course-actions .btn {
-      flex: 1 1 180px;
-    }
-
-    .btn-outline {
-      background: #fff;
-      color: #0f172a;
-      border: 1px solid #e2e8f0;
-      box-shadow: none;
-    }
-
-    .btn-outline:hover {
-      transform: translateY(-2px);
-      border-color: #f59e0b;
-    }
-
-    .qpay-card {
-      background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
-      color: #fff;
-      border-radius: 28px;
-      box-shadow: var(--shadow);
-      padding: 28px;
-      margin-top: 28px;
-    }
-
-    .qpay-card h3 {
-      margin-top: 0;
-      margin-bottom: 10px;
-      font-size: 28px;
-    }
-
-    .qpay-grid {
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 24px;
-      align-items: center;
-    }
-
-    .qpay-qr {
-      background: #fff;
-      border-radius: 24px;
-      padding: 18px;
-      display: grid;
-      place-items: center;
-      min-height: 280px;
-    }
-
-    .qr-placeholder {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      border-radius: 18px;
-      background:
-        linear-gradient(90deg, #111 12px, transparent 12px) 0 0 / 36px 36px,
-        linear-gradient(#111 12px, transparent 12px) 0 0 / 36px 36px,
-        linear-gradient(90deg, transparent 24px, #111 24px) 0 0 / 36px 36px,
-        linear-gradient(transparent 24px, #111 24px) 0 0 / 36px 36px,
-        #fff;
-      border: 10px solid #fff;
-      box-shadow: inset 0 0 0 1px #e2e8f0;
-    }
-
-    .qpay-info {
-      display: grid;
-      gap: 14px;
-    }
-
-    .qpay-item {
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(255,255,255,.1);
-      border-radius: 18px;
-      padding: 16px 18px;
-    }
-
-    .qpay-item strong {
-      display: block;
-      margin-bottom: 6px;
-      color: #fde68a;
-    }
-
-    .pricing-card { position: relative; }
-
-    @media (max-width: 768px) {
-      .countdown { grid-template-columns: repeat(2, 1fr); }
-      .sticky-contact { right: 12px; bottom: 12px; }
-      .floating-action { width: 54px; height: 54px; font-size: 22px; }
-    }
     :root {
       --bg: #0b1020;
       --bg-soft: #111831;
@@ -207,9 +30,10 @@
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Roboto', sans-serif;
       color: var(--dark-text);
       background: var(--section);
       line-height: 1.6;
@@ -245,6 +69,18 @@
       color: #fff;
       border: 1px solid rgba(255,255,255,.18);
       backdrop-filter: blur(12px);
+    }
+
+    .btn-outline {
+      background: #fff;
+      color: #0f172a;
+      border: 1px solid #e2e8f0;
+      box-shadow: none;
+    }
+
+    .btn-outline:hover {
+      transform: translateY(-2px);
+      border-color: #f59e0b;
     }
 
     .topbar {
@@ -342,6 +178,20 @@
       padding: 72px 0;
     }
 
+    .sale-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(245, 158, 11, 0.18);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      color: #fff7ed;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
     .eyebrow {
       display: inline-flex;
       padding: 8px 14px;
@@ -373,10 +223,56 @@
       gap: 14px;
       margin-bottom: 28px;
     }
-     .hero-stats {
-  margin-top: 20px;
-}
+
+    .countdown-title-wrap {
+      margin-top: 10px;
+      margin-bottom: 14px;
+    }
+
+    .countdown-title {
+      color: #fde68a;
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .countdown-subtext {
+      color: #cbd5e1;
+      font-size: 14px;
+    }
+
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin: 22px 0 0;
+      max-width: 560px;
+    }
+
+    .count-box {
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 20px;
+      padding: 16px 10px;
+      text-align: center;
+      backdrop-filter: blur(12px);
+    }
+
+    .count-box strong {
+      display: block;
+      font-size: 30px;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .count-box span {
+      font-size: 13px;
+      color: #cbd5e1;
+    }
+
     .hero-stats {
+      margin-top: 20px;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 32px;
@@ -529,6 +425,73 @@
       flex-wrap: wrap;
     }
 
+    .course-price {
+      margin: 12px 0 18px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .course-price-top {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .old-price {
+      color: #94a3b8;
+      text-decoration: line-through;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .new-price {
+      color: #0f172a;
+      font-size: 34px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .discount-chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #dc2626;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .course-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .course-actions .btn {
+      flex: 1 1 220px;
+    }
+
+    .pricing-card { position: relative; }
+
+    .ribbon {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #dc2626, #f97316);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 800;
+      box-shadow: 0 10px 24px rgba(220, 38, 38, 0.28);
+      z-index: 2;
+    }
+
     .why {
       background: linear-gradient(180deg, #eef2ff 0%, #f8fafc 100%);
     }
@@ -646,6 +609,61 @@
       font-size: 18px;
     }
 
+    .qpay-card {
+      background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+      color: #fff;
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 28px;
+      margin-top: 28px;
+    }
+
+    .qpay-grid {
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .qpay-qr {
+      background: #fff;
+      border-radius: 24px;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .qpay-qr img {
+      width: 100%;
+      max-width: 360px;
+      height: auto;
+      border-radius: 16px;
+      display: block;
+      object-fit: contain;
+    }
+
+    .qpay-info {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      min-width: 0;
+    }
+
+    .qpay-item {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 18px;
+      padding: 18px 20px;
+    }
+
+    .qpay-item strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #fde68a;
+    }
+
     .contact-wrap {
       display: grid;
       grid-template-columns: .9fr 1.1fr;
@@ -725,13 +743,42 @@
       flex-wrap: wrap;
     }
 
+    .sticky-contact {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 1200;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .floating-action {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      box-shadow: 0 18px 35px rgba(15, 23, 42, 0.28);
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .messenger-btn {
+      background: linear-gradient(135deg, #0084ff, #00b2ff);
+    }
+
+    .call-btn {
+      background: linear-gradient(135deg, #f59e0b, #f97316);
+    }
+
     @media (max-width: 1024px) {
       .hero-grid,
       .why-grid,
       .contact-wrap,
       .courses,
-      .testimonials-grid,
-      .qpay-grid {
+      .testimonials-grid {
         grid-template-columns: 1fr 1fr;
       }
 
@@ -743,6 +790,7 @@
 
     @media (max-width: 768px) {
       .menu { display: none; }
+
       .hero-stats,
       .courses,
       .testimonials-grid,
@@ -758,22 +806,27 @@
       .hero-grid { padding: 54px 0; }
       .hero-card img,
       .why-image img { min-height: auto; height: auto; }
+
       .section-head p,
       .hero p,
       .cta p { font-size: 16px; }
+
       .hero-actions,
       .course-actions,
       .course-meta {
         flex-direction: column;
         align-items: stretch;
       }
+
       .btn,
       .course-actions .btn {
         width: 100%;
       }
+
       .container {
         width: min(var(--container), calc(100% - 20px));
       }
+
       .qpay-card,
       .contact-card,
       .form-card,
@@ -782,8 +835,34 @@
       .why-item {
         border-radius: 22px;
       }
+
       .new-price {
         font-size: 28px;
+      }
+
+      .qpay-grid {
+        gap: 24px;
+      }
+
+      .qpay-qr {
+        max-width: 420px;
+        width: 100%;
+        margin: 0 auto;
+      }
+
+      .qpay-qr img {
+        max-width: 100%;
+      }
+
+      .sticky-contact {
+        right: 12px;
+        bottom: 12px;
+      }
+
+      .floating-action {
+        width: 54px;
+        height: 54px;
+        font-size: 22px;
       }
     }
   </style>
@@ -820,6 +899,11 @@
         <div class="hero-actions">
           <a href="#courses" class="btn btn-primary">Сургалт үзэх</a>
           <a href="#about" class="btn btn-secondary">Дэлгэрэнгүй</a>
+        </div>
+
+        <div class="countdown-title-wrap">
+          <div class="countdown-title">⏰ Хямдрал дуусах хүртэл</div>
+          <div class="countdown-subtext">Амжиж бүртгүүлээд хямд үнээр суралцаарай</div>
         </div>
 
         <div class="countdown" id="countdown">
@@ -913,8 +997,7 @@
               </div>
             </div>
             <div class="course-actions">
-              <a href="#contact" class="btn btn-primary">Бүртгүүлэх</a>
-              <a href="#qpay" class="btn btn-outline">QPay төлөх</a>
+              <a href="#qpay" class="btn btn-primary">Бүртгүүлэх</a>
             </div>
           </div>
         </article>
@@ -938,8 +1021,7 @@
               </div>
             </div>
             <div class="course-actions">
-              <a href="#contact" class="btn btn-primary">Бүртгүүлэх</a>
-              <a href="#qpay" class="btn btn-outline">QPay төлөх</a>
+              <a href="#qpay" class="btn btn-primary">Бүртгүүлэх</a>
             </div>
           </div>
         </article>
@@ -1044,35 +1126,34 @@
     </div>
   </section>
 
-    <section id="qpay">
+  <section id="qpay">
     <div class="container">
       <div class="qpay-card">
         <div class="section-head" style="margin-bottom: 28px; text-align:left; max-width:none;">
           <span style="background: rgba(255,255,255,.12); color:#fde68a;">QPay</span>
           <h2 style="color:#fff;">QPay төлбөрийн хэсэг</h2>
-          <p style="color:#cbd5e1;">QR кодоо энд байрлуулаад суралцагчид шууд төлбөрөө хийх боломжтой болгоорой.</p>
         </div>
 
         <div class="qpay-grid">
           <div class="qpay-qr">
-            <div class="qr-placeholder" aria-label="QPay QR placeholder"></div>
+            <img src="images/qpay.jpg" alt="QPay QR код">
           </div>
 
           <div class="qpay-info">
             <div class="qpay-item">
               <strong>Дансны нэр</strong>
-              Gerelt Academy
+              Анар Баттулга
             </div>
             <div class="qpay-item">
-              <strong>Төлбөрийн утга</strong>
-              Овог Нэр + сонгосон сургалтын нэр
+              <strong>Данс</strong>
+              020004000   439005142
             </div>
             <div class="qpay-item">
-              <strong>Баталгаажуулалт</strong>
-              Төлбөр хийсний дараа 9911-2233 дугаарт гүйлгээний зургаа илгээнэ.
+              <strong>Гүйлгээний утга</strong>
+              Нэр, Утаcны дугаар
             </div>
             <div class="course-actions">
-              <a href="#contact" class="btn btn-primary">Төлсний дараа бүртгүүлэх</a>
+              <a href="#contact" class="btn btn-primary">Төлсөн учраас бүртгүүлэх</a>
               <a href="tel:99112233" class="btn btn-outline">Утсаар холбогдох</a>
             </div>
           </div>
@@ -1095,14 +1176,14 @@
           <p>Танд тохирох сургалт, хуваарь, төлбөрийн мэдээллийг өгнө.</p>
 
           <div class="contact-info">
-            <div><strong>📞 Утас:</strong><br> 9911-2233</div>
-            <div><strong>✉️ Имэйл:</strong><br> info@gereltacademy.mn</div>
+            <div><strong>📞 Утас:</strong><br> 723-7326</div>
+            <div><strong>✉️ Имэйл:</strong><br> 1gereltacademy@gmail.com</div>
             <div><strong>📍 Байршил:</strong><br> Улаанбаатар / Онлайн</div>
           </div>
         </div>
 
         <div class="form-card">
-          <h3>Маягт бөглөх</h3>
+          <h3>Бүртгүүлэх хэсэг</h3>
           <form>
             <div class="grid-2">
               <input type="text" placeholder="Нэр" />
@@ -1143,9 +1224,7 @@
   </div>
 
   <script>
-    const targetDate = new Date();
-    targetDate.setDate(targetDate.getDate() + 5);
-    targetDate.setHours(23, 59, 59, 999);
+    const targetDate = new Date("2026-03-23T18:00:00");
 
     function updateCountdown() {
       const now = new Date().getTime();
