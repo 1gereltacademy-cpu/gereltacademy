@@ -525,17 +525,6 @@
       object-fit: cover;
     }
 
-    .badge-card {
-      position: absolute;
-      right: 20px;
-      bottom: 20px;
-      background: rgba(255,255,255,.92);
-      padding: 18px 20px;
-      border-radius: 20px;
-      box-shadow: var(--shadow);
-      max-width: 240px;
-    }
-
     .why-list {
       display: grid;
       gap: 18px;
@@ -661,7 +650,7 @@
       border-radius: 16px;
       display: block;
       object-fit: contain;
-	  margin-bottom:60px;
+      margin-bottom: 60px;
     }
 
     .qpay-info {
@@ -693,11 +682,11 @@
 
     .contact-card,
     .form-card {
-      background: #fff;
-      border-radius: 28px;
-      box-shadow: var(--shadow);
-      padding: 28px;
-    }
+  background: #fff;
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+  padding: 28px 28px 0px;
+}
 
     .contact-card h3,
     .form-card h3 { margin-top: 0; font-size: 28px; }
@@ -741,6 +730,12 @@
     }
 
     textarea { min-height: 140px; resize: vertical; }
+
+    .form-status {
+      margin-top: 10px;
+      font-weight: 600;
+      min-height: 24px;
+    }
 
     footer {
       background: #0f172a;
@@ -1025,7 +1020,7 @@
           <div class="course-content">
             <div class="tag">Видео & Reels</div>
             <h3>Capcut сургалт</h3>
-            <p>CapCut, ашиглан social контент видео эвлүүлэг хийж сурна.</p>
+            <p>CapCut ашиглан social контент видео эвлүүлэг хийж сурна.</p>
             <div class="course-meta">
               <span>2 долоо хоног</span>
               <span>Анхан шат</span>
@@ -1105,7 +1100,6 @@
       <div class="why-grid">
         <div class="why-image">
           <img src="https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=1200&q=80" alt="Суралцагч" />
-          
         </div>
 
         <div class="why-list">
@@ -1237,7 +1231,7 @@
           <p>Танд тохирох сургалт, хуваарь, төлбөрийн мэдээллийг өгнө.</p>
 
           <div class="contact-info">
-            <div><strong>📞 Утас:</strong><br> 723-7326</div>
+            <div><strong>📞 Утас:</strong><br> 7223-7326</div>
             <div><strong>✉️ Имэйл:</strong><br> 1gereltacademy@gmail.com</div>
             <div><strong>📍 Байршил:</strong><br> Улаанбаатар / Онлайн</div>
           </div>
@@ -1245,23 +1239,30 @@
 
         <div class="form-card">
           <h3>Бүртгүүлэх хэсэг</h3>
-          <form>
-            <div class="grid-2">
-              <input type="text" placeholder="Нэр" />
-              <input type="tel" placeholder="Утасны дугаар" />
-            </div>
-            <div class="grid-2">
-              <input type="email" placeholder="Имэйл" />
-              <select>
-                <option>Сургалт сонгох</option>
-                <option>Видео засвар</option>
-                <option>График дизайн</option>
-                <option>Оффис программ</option>
-              </select>
-            </div>
-            <textarea placeholder="Мессеж бичих..."></textarea>
-            <button type="submit" class="btn btn-primary">Илгээх</button>
-          </form>
+          <form id="registerForm">
+  <div class="grid-2">
+    <input id="name" type="text" placeholder="Нэр" required />
+    <input id="phone" type="tel" placeholder="Утасны дугаар" required />
+  </div>
+
+  <div class="grid-2">
+    <input id="email" type="email" placeholder="Имэйл" />
+    <select id="course" required>
+      <option value="">Сургалт сонгох</option>
+      <option value="Capcut сургалт">Capcut сургалт</option>
+      <option value="График дизайн">График дизайн</option>
+      <option value="Компьютерийн хэрэглээ">Компьютерийн хэрэглээ</option>
+    </select>
+  </div>
+
+  <textarea id="message" placeholder="Мессеж бичих..." required></textarea>
+
+  <button type="submit" class="btn btn-primary">Илгээх</button>
+
+  <!-- status -->
+  <p id="formStatus" style="margin-top:10px;"></p>
+</form>
+          <p id="formStatus" class="form-status"></p>
         </div>
       </div>
     </div>
@@ -1285,33 +1286,105 @@
   </div>
 
   <script>
-    const targetDate = new Date("2026-03-23T18:00:00");
+  const targetDate = new Date("2026-03-23T18:00:00");
 
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const distance = targetDate.getTime() - now;
+  function updateCountdown() {
+    const daysEl = document.getElementById("days");
+    const hoursEl = document.getElementById("hours");
+    const minutesEl = document.getElementById("minutes");
+    const secondsEl = document.getElementById("seconds");
 
-      if (distance <= 0) {
-        document.getElementById('days').textContent = '00';
-        document.getElementById('hours').textContent = '00';
-        document.getElementById('minutes').textContent = '00';
-        document.getElementById('seconds').textContent = '00';
+    if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
+
+    const now = new Date().getTime();
+    const distance = targetDate.getTime() - now;
+
+    if (distance <= 0) {
+      daysEl.textContent = "00";
+      hoursEl.textContent = "00";
+      minutesEl.textContent = "00";
+      secondsEl.textContent = "00";
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((distance / (1000 * 60)) % 60);
+    const seconds = Math.floor((distance / 1000) % 60);
+
+    daysEl.textContent = String(days).padStart(2, "0");
+    hoursEl.textContent = String(hours).padStart(2, "0");
+    minutesEl.textContent = String(minutes).padStart(2, "0");
+    secondsEl.textContent = String(seconds).padStart(2, "0");
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  const scriptURL = "https://script.google.com/macros/s/AKfycbwC_hGU7q1y1OfB84ZE8XT0JC6k0Iixu_RkjBBNvkYLMFbt7kF_d82IIc9_YB3gPXDq/exec";
+
+  const form = document.getElementById("registerForm");
+  const status = document.getElementById("formStatus");
+
+  if (form && status) {
+    form.addEventListener("submit", async function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const course = document.getElementById("course").value;
+      const message = document.getElementById("message").value.trim();
+      const btn = form.querySelector("button[type='submit']");
+
+      if (!name || !phone || !course || !message) {
+        status.textContent = "❗ Бүх заавал талбаруудыг бөглөнө үү.";
+        status.style.color = "red";
         return;
       }
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((distance / (1000 * 60)) % 60);
-      const seconds = Math.floor((distance / 1000) % 60);
+      if (name.length < 2) {
+        status.textContent = "❗ Нэрээ зөв оруулна уу.";
+        status.style.color = "red";
+        return;
+      }
 
-      document.getElementById('days').textContent = String(days).padStart(2, '0');
-      document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-      document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-      document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-    }
+      if (!/^[0-9]{8}$/.test(phone)) {
+        status.textContent = "❗ Утасны дугаар 8 оронтой тоо байх ёстой.";
+        status.style.color = "red";
+        return;
+      }
 
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-  </script>
+      const data = { name, phone, email, course, message };
+
+      try {
+        status.textContent = "⏳ Илгээж байна...";
+        status.style.color = "#b45309";
+        btn.disabled = true;
+
+        const res = await fetch(scriptURL, {
+          method: "POST",
+          body: JSON.stringify(data)
+        });
+
+        const result = await res.json();
+
+        if (result.success) {
+          status.textContent = "✅ Амжилттай бүртгэгдлээ!";
+          status.style.color = "green";
+          form.reset();
+        } else {
+          status.textContent = "❌ Алдаа гарлаа: " + (result.message || "Тодорхойгүй алдаа");
+          status.style.color = "red";
+        }
+      } catch (err) {
+        status.textContent = "❌ Сервертэй холбогдож чадсангүй.";
+        status.style.color = "red";
+      } finally {
+        btn.disabled = false;
+      }
+    });
+  }
+</script>
 </body>
 </html>
