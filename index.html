@@ -1018,18 +1018,14 @@
           <div class="ribbon">-40%</div>
           <img src="images/capcut.jpg" alt="Видео засвар" />
           <div class="course-content">
-            <div class="tag">Видео & Reels</div>
-            <h3>Capcut сургалт</h3>
-            <p>CapCut ашиглан social контент видео эвлүүлэг хийж сурна.</p>
-            <div class="course-meta">
-              <span>2 долоо хоног</span>
-              <span>Анхан шат</span>
-            </div>
+            <div class="tag">Видео</div>
+            <h3>Capcut анхан шат</h3>
+            <p>CapCut ашиглан анхан шатны видео эвлүүлэг хийж сурна</p>
             <div class="course-price">
               <div class="course-price-top">
-                <span class="old-price">150,000₮</span>
-                <span class="new-price">90,000₮</span>
-                <span class="discount-chip">40% OFF</span>
+                <span class="old-price">90,000₮</span>
+                <span class="new-price">29,900₮</span>
+                <span class="discount-chip">67% OFF</span>
               </div>
             </div>
             <div class="course-actions">
@@ -1042,18 +1038,14 @@
           <div class="ribbon">-40%</div>
           <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1200&q=80" alt="График дизайн" />
           <div class="course-content">
-            <div class="tag">Design</div>
-            <h3>График дизайн</h3>
-            <p>Photoshop ашиглан poster, social post, эх бэлтгэл хийх мэдлэгтэй болно.</p>
-            <div class="course-meta">
-              <span>5 долоо хоног</span>
-              <span>Анхан шат</span>
-            </div>
+            <div class="tag">Видео & Reel</div>
+            <h3>Capcut дунд шат</h3>
+            <p>CapCut ашиглан дунд шатны видео эвлүүлэг хийж сурна</p>
             <div class="course-price">
               <div class="course-price-top">
-                <span class="old-price">250,000₮</span>
-                <span class="new-price">150,000₮</span>
-                <span class="discount-chip">40% OFF</span>
+                <span class="old-price">120,000₮</span>
+                <span class="new-price">60,000₮</span>
+                <span class="discount-chip">50% OFF</span>
               </div>
             </div>
             <div class="course-actions">
@@ -1066,18 +1058,14 @@
           <div class="ribbon">-50%</div>
           <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80" alt="Оффис программ" />
           <div class="course-content">
-            <div class="tag">Computer Skills</div>
-            <h3>Компьютерийн хэрэглээ</h3>
-            <p>Компьютерийн хэрхэн ашиглах, интернет орчинд хэрэглэх талаар сурна.</p>
-            <div class="course-meta">
-              <span>10 долоо хоног</span>
-              <span>Бүх түвшин</span>
-            </div>
+            <div class="tag">Reel & Hook</div>
+            <h3>Capcut ахисан шат</h3>
+            <p>CapCut дээр reel болон хүүк ашиглах шалгарсан аргуудыг сурна</p>
             <div class="course-price">
               <div class="course-price-top">
-                <span class="old-price">300,000₮</span>
-                <span class="new-price">150,000₮</span>
-                <span class="discount-chip">50% OFF</span>
+                <span class="old-price">150,000₮</span>
+                <span class="new-price">90,000₮</span>
+                <span class="discount-chip">40% OFF</span>
               </div>
             </div>
             <div class="course-actions">
@@ -1137,8 +1125,8 @@
   <section id="qpay">
     <div class="container">
       <div class="qpay-card">
-        <div class="section-head" style="margin-bottom: 28px; text-align:left; max-width:none;">
-          <h2 style="color:#fff;">QPay төлбөрийн хэсэг</h2>
+        <div class="section-head" style="margin-bottom: 28px; text-align:center; max-width:none;">
+          <h2 style="color:#fff; ">Төлбөрөө төлсөний дараа бүртгүүлээрэй</h2>
         </div>
 
         <div class="qpay-grid">
@@ -1193,17 +1181,21 @@
           <h3>Бүртгүүлэх хэсэг</h3>
           <form id="registerForm">
   <div class="grid-2">
-    <input id="name" type="text" placeholder="Нэр" required />
+    <input id="name" type="text" placeholder="Овог нэр" required />
     <input id="phone" type="tel" placeholder="Утасны дугаар" required />
   </div>
 
   <div class="grid-2">
+    <div>
+    <input id="fbLink" type="url" placeholder="Таны facebook link" />
+    <small style="display:block;margin-top:8px;color:#64748b;"></small>
+  </div>
     <input id="email" type="email" placeholder="Имэйл" />
     <select id="course" required>
       <option value="">Сургалт сонгох</option>
-      <option value="Capcut сургалт">Capcut сургалт</option>
-      <option value="График дизайн">График дизайн</option>
-      <option value="Компьютерийн хэрэглээ">Компьютерийн хэрэглээ</option>
+      <option value="Capcut сургалт">Capcut анхан</option>
+      <option value="График дизайн">Capcut дунд</option>
+      <option value="Компьютерийн хэрэглээ">Capcut ахисан</option>
     </select>
   </div>
 
@@ -1273,7 +1265,7 @@
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
-  const scriptURL = "https://script.google.com/macros/s/AKfycbwC_hGU7q1y1OfB84ZE8XT0JC6k0Iixu_RkjBBNvkYLMFbt7kF_d82IIc9_YB3gPXDq/exec";
+  const scriptURL = "https://script.google.com/macros/s/AKfycbzn2HyEyblLgMzINdwO0_-huSgLHDgA8aHOQH68yLduGed_fqwmJqOxMeUGIHcjoTIt/exec";
 
   const form = document.getElementById("registerForm");
   const status = document.getElementById("formStatus");
@@ -1284,6 +1276,7 @@
 
       const name = document.getElementById("name").value.trim();
       const phone = document.getElementById("phone").value.trim();
+      const fbLink = document.getElementById("fbLink").value.trim();
       const email = document.getElementById("email").value.trim();
       const course = document.getElementById("course").value;
       const message = document.getElementById("message").value.trim();
@@ -1307,7 +1300,7 @@
         return;
       }
 
-      const data = { name, phone, email, course, message };
+      const data = { name, phone, fbLink, email, course, message };
 
       try {
         status.textContent = "⏳ Илгээж байна...";
